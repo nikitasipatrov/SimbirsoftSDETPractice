@@ -36,12 +36,12 @@ public class LoginPage {
     }
 
     public LoginPage enterMailLogin(String inputLogin) {
-        loginField.sendKeys(ConfProperties.getProperty(inputLogin));
+        loginField.sendKeys(inputLogin);
         return this;
     }
 
     public LoginPage enterPassword(String inputPassword){
-        passwordField.sendKeys(ConfProperties.getProperty(inputPassword));
+        passwordField.sendKeys(inputPassword);
         return this;
     }
 }

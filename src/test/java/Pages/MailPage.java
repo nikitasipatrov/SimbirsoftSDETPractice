@@ -46,19 +46,14 @@ public class MailPage {
     @FindBy (xpath = "//a[@href = '#inbox']")
     private WebElement backInboxBtn;
 
-    //Метод фильтрацииписем по теме "Simbirsoft theme" в папке входяшие
+    //Метод фильтрации gисем по теме "Simbirsoft theme" в папке входяшие
     public MailPage findMailsByTheme() {
         searchMailsField.sendKeys(ConfProperties.getProperty("mailTheme") + " папка:Входящие");
         searchMailsField.submit();
         return this;
     }
 
-    //Метод определения найденных писем
-    public String getCountOfMails() {
-        return mailsNumber.getText();
-    }
-
-    //Метод определения числа писем
+    //Определение числа писем
     public Integer getNumberOfMails() {
         return Integer.parseInt(mailsNumber.getText().replaceAll("\\D+",""));
     }
@@ -69,21 +64,21 @@ public class MailPage {
         return this;
     }
 
-    //Метод ввода адреса получателя письмя
+    //Метод ввода адреса получателя письма
     public MailPage inputAddressMail(String inputAddress) {
-        addressMailField.sendKeys(ConfProperties.getProperty(inputAddress));
+        addressMailField.sendKeys(inputAddress);
         return this;
     }
 
     //Метод ввода темы письма
     public MailPage inputMailTheme(String inputTheme){
-        themeMailField.sendKeys(ConfProperties.getProperty(inputTheme));
+        themeMailField.sendKeys(inputTheme);
         return this;
     }
 
     //Метод ввода текста письма
     public MailPage inputMailText(String inputText){
-        mailTextField.sendKeys(inputText, getCountOfMails());
+        mailTextField.sendKeys(inputText);
         return this;
     }
 

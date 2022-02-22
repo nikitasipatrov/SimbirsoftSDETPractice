@@ -35,17 +35,17 @@ public class YandexMailTest {
         int afternum;
         LoginPage loginpage = new LoginPage(driver);
         loginpage.clickMailBtn()
-                .enterMailLogin("mail")
+                .enterMailLogin(ConfProperties.getProperty("mail"))
                 .clickEnterMailBtn()
-                .enterPassword("password")
+                .enterPassword(ConfProperties.getProperty("password"))
                 .clickEnterMailBtn();
         MailPage mailpage = new MailPage(driver);
         mailpage.findMailsByTheme();
         beforenum = mailpage.getNumberOfMails();
         mailpage.clickSendBtn()
-                .inputAddressMail("mail")
-                .inputMailTheme("mailTheme")
-                .inputMailText("Найдено ")
+                .inputAddressMail(ConfProperties.getProperty("mail"))
+                .inputMailTheme(ConfProperties.getProperty("mailTheme"))
+                .inputMailText("Найдено " + mailpage.getNumberOfMails() + " писем\\ьма")
                 .clickSendMail()
                 .clickBackInboxBtn();
         driver.navigate().refresh();
