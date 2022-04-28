@@ -23,7 +23,7 @@ public class MailPage {
     private WebElement mailsNumber;
 
     //Определение кнопки "Написать"
-    @FindBy(xpath = "//span[@class = 'mail-ComposeButton-Text']")
+    @FindBy(xpath = "//span[contains (text(),'Написать')]//ancestor::a")
     private WebElement writeMailBtn;
 
     //Определение поля для ввода адреса получателя письма
