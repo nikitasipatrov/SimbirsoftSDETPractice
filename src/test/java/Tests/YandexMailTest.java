@@ -31,8 +31,8 @@ public class YandexMailTest {
 
     @Test
     public void mailTest()  {
-        int beforenum;
-        int afternum;
+        int beforeNum;
+        int afterNum;
         LoginPage loginpage = new LoginPage(driver);
         loginpage.clickMailBtn()
                 .enterMailLogin(ConfProperties.getProperty("mail"))
@@ -41,7 +41,7 @@ public class YandexMailTest {
                 .clickEnterMailBtn();
         MailPage mailpage = new MailPage(driver);
         mailpage.findMailsByTheme();
-        beforenum = mailpage.getNumberOfMails();
+        beforeNum = mailpage.getNumberOfMails();
         mailpage.clickSendBtn()
                 .inputAddressMail(ConfProperties.getProperty("mail"))
                 .inputMailTheme(ConfProperties.getProperty("mailTheme"))
@@ -50,7 +50,7 @@ public class YandexMailTest {
                 .clickBackInboxBtn();
         driver.navigate().refresh();
         mailpage.findMailsByTheme();
-        afternum = mailpage.getNumberOfMails();
-        Assert.assertEquals(++beforenum,afternum);
+        afterNum = mailpage.getNumberOfMails();
+        Assert.assertEquals(++beforeNum,afterNum);
     }
 }
