@@ -1,6 +1,7 @@
 package Pages;
 
 import Utils.ConfProperties;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,21 +26,25 @@ public class LoginPage {
     @FindBy(xpath ="//a[contains(@class,'HeadBanner-Button-Enter')]")
     private WebElement mailBtn;
 
+    @Step
     public LoginPage clickMailBtn() {
         mailBtn.click();
         return this;
     }
 
+    @Step
     public LoginPage clickEnterMailBtn() {
         enterMailBtn.click();
         return this;
     }
 
+    @Step
     public LoginPage enterMailLogin(String inputLogin) {
         loginField.sendKeys(inputLogin);
         return this;
     }
 
+    @Step
     public LoginPage enterPassword(String inputPassword){
         passwordField.sendKeys(inputPassword);
         return this;

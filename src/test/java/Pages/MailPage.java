@@ -1,6 +1,7 @@
 package Pages;
 
 import Utils.ConfProperties;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,6 +48,7 @@ public class MailPage {
     private WebElement backInboxBtn;
 
     //Метод фильтрации gисем по теме "Simbirsoft theme" в папке входяшие
+    @Step
     public MailPage findMailsByTheme() {
         searchMailsField.sendKeys(ConfProperties.getProperty("mailTheme") + " папка:Входящие");
         searchMailsField.submit();
@@ -54,41 +56,48 @@ public class MailPage {
     }
 
     //Определение числа писем
+    @Step
     public Integer getNumberOfMails() {
         return Integer.parseInt(mailsNumber.getText().replaceAll("\\D+",""));
     }
 
     //Метод нажатия кнопки "Написать"
+    @Step
     public MailPage clickSendBtn() {
         writeMailBtn.click();
         return this;
     }
 
     //Метод ввода адреса получателя письма
+    @Step
     public MailPage inputAddressMail(String inputAddress) {
         addressMailField.sendKeys(inputAddress);
         return this;
     }
 
     //Метод ввода темы письма
+    @Step
     public MailPage inputMailTheme(String inputTheme){
         themeMailField.sendKeys(inputTheme);
         return this;
     }
 
     //Метод ввода текста письма
+    @Step
     public MailPage inputMailText(String inputText){
         mailTextField.sendKeys(inputText);
         return this;
     }
 
     //Метод нажатия кнопки "Отправить"
+    @Step
     public MailPage clickSendMail() {
         sentMailBtn.click();
         return this;
     }
 
     //Метод нажатия "Вернуться во входящие"
+    @Step
     public MailPage clickBackInboxBtn() {
         backInboxBtn.click();
         return this;

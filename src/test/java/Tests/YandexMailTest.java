@@ -3,6 +3,7 @@ package Tests;
 import Pages.LoginPage;
 import Pages.MailPage;
 import Utils.ConfProperties;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -29,7 +30,8 @@ public class YandexMailTest {
         driver.quit();
     }
 
-    @Test
+    @Test (description = "Задание UI  практикума SDET от Simbirsoft")
+    @Owner(value = "Никита Сипатров")
     public void mailTest()  {
         int beforeNum;
         int afterNum;
